@@ -118,6 +118,7 @@ icons = {
     "comments-o": u("\uf0e6"),
     "compass": u("\uf14e"),
     "compress": u("\uf066"),
+    "copy": u("\uF0c5"),
     "credit-card": u("\uf09d"),
     "crop": u("\uf125"),
     "crosshairs": u("\uf05b"),
@@ -159,6 +160,7 @@ icons = {
     "flag": u("\uf024"),
     "flag-checkered": u("\uf11e"),
     "flag-o": u("\uf11d"),
+    "floppy": u("\uf0c7"),
     "flask": u("\uf0c3"),
     "flickr": u("\uf16e"),
     "folder": u("\uf07b"),
@@ -180,6 +182,7 @@ icons = {
     "globe": u("\uf0ac"),
     "google-plus": u("\uf0d5"),
     "google-plus-square": u("\uf0d4"),
+    "group": u("\uf0c0"),
     "h-square": u("\uf0fd"),
     "hand-o-down": u("\uf0a7"),
     "hand-o-left": u("\uf0a5"),
@@ -206,6 +209,7 @@ icons = {
     "level-down": u("\uf149"),
     "level-up": u("\uf148"),
     "lightbulb-o": u("\uf0eb"),
+    "link": u("\uf0c1"),
     "linkedin": u("\uf0e1"),
     "linkedin-square": u("\uf08c"),
     "linux": u("\uf17c"),
@@ -264,6 +268,7 @@ icons = {
     "quote-right": u("\uf10e"),
     "random": u("\uf074"),
     "refresh": u("\uf021"),
+    "remove": u("\uf00d"),
     "renren": u("\uf18b"),
     "reply-all": u("\uf122"),
     "retweet": u("\uf079"),
@@ -377,13 +382,13 @@ class ListUpdateAction(argparse.Action):
         exit(0)
 
 
-def export_icon(icon, size, filename, font, color):
+def export_icon(icon, size, size_adjust, filename, font, color):
     image = Image.new("RGBA", (size, size), color=(0,0,0,0))
 
     draw = ImageDraw.Draw(image)
 
     # Initialize font
-    font = ImageFont.truetype(font, size)
+    font = ImageFont.truetype(font, size - size_adjust)
 
     # Determine the dimensions of the icon
     width,height = draw.textsize(icons[icon], font=font)
@@ -454,12 +459,15 @@ if __name__ == '__main__':
             help=argparse.SUPPRESS)
     parser.add_argument("--size", type=int, default=16,
             help="Icon size in pixels (default: 16)")
+    parser.add_argument("--size-adjust", type=int, default=0,
+            help="Decrease icon size by this many pixels (default: 0)")            
 
     args = parser.parse_args()
     icon = args.icon
     size = args.size
     font = args.font
     color = args.color
+    size_adjust = args.size_adjust
 
     if args.font:
         if not path.isfile(args.font) or not access(args.font, R_OK):
@@ -499,5 +507,5 @@ if __name__ == '__main__':
         print("Exporting icon \"%s\" as %s (%ix%i pixels)" %
                 (icon, filename, size, size))
 
-        export_icon(icon, size, filename, font, color)
+        export_icon(icon, size, size_adjust, filename, font, color)
 
