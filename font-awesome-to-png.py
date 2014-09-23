@@ -5,7 +5,7 @@
 #
 # Exports Font Awesome icons as PNG images.
 #
-# Copyright (c) 2012-2013 Michal Wojciechowski (http://odyniec.net/)
+# Copyright (c) 2012-2014 Michal Wojciechowski (http://odyniec.net/)
 #
 # Font Awesome - http://fortawesome.github.com/Font-Awesome
 #
@@ -19,9 +19,15 @@ if sys.version < '3':
     import codecs
     def u(x):
         return codecs.unicode_escape_decode(x)[0]
+
+    def uchr(x):
+        return unichr(x)
 else:
     def u(x):
         return x
+
+    def uchr(x):
+        return chr(x)
 
 # Mapping of icon names to character codes
 icons = {
@@ -61,34 +67,51 @@ icons = {
     "arrows-h": u("\uf07e"),
     "arrows-v": u("\uf07d"),
     "asterisk": u("\uf069"),
+    "automobile": u("\uf1b9"),
     "backward": u("\uf04a"),
     "ban": u("\uf05e"),
+    "bank": u("\uf19c"),
     "bar-chart-o": u("\uf080"),
     "barcode": u("\uf02a"),
     "bars": u("\uf0c9"),
     "beer": u("\uf0fc"),
+    "behance": u("\uf1b4"),
+    "behance-square": u("\uf1b5"),
     "bell": u("\uf0f3"),
     "bell-o": u("\uf0a2"),
     "bitbucket": u("\uf171"),
     "bitbucket-square": u("\uf172"),
+    "bitcoin": u("\uf15a"),
     "bold": u("\uf032"),
+    "bolt": u("\uf0e7"),
+    "bomb": u("\uf1e2"),
     "book": u("\uf02d"),
     "bookmark": u("\uf02e"),
     "bookmark-o": u("\uf097"),
     "briefcase": u("\uf0b1"),
+    "btc": u("\uf15a"),
     "bug": u("\uf188"),
+    "building": u("\uf1ad"),
     "building-o": u("\uf0f7"),
     "bullhorn": u("\uf0a1"),
     "bullseye": u("\uf140"),
+    "cab": u("\uf1ba"),
     "calendar": u("\uf073"),
     "calendar-o": u("\uf133"),
     "camera": u("\uf030"),
     "camera-retro": u("\uf083"),
+    "car": u("\uf1b9"),
     "caret-down": u("\uf0d7"),
     "caret-left": u("\uf0d9"),
     "caret-right": u("\uf0da"),
+    "caret-square-o-down": u("\uf150"),
+    "caret-square-o-left": u("\uf191"),
+    "caret-square-o-right": u("\uf152"),
+    "caret-square-o-up": u("\uf151"),
     "caret-up": u("\uf0d8"),
     "certificate": u("\uf0a3"),
+    "chain": u("\uf0c1"),
+    "chain-broken": u("\uf127"),
     "check": u("\uf00c"),
     "check-circle": u("\uf058"),
     "check-circle-o": u("\uf05d"),
@@ -102,15 +125,23 @@ icons = {
     "chevron-left": u("\uf053"),
     "chevron-right": u("\uf054"),
     "chevron-up": u("\uf077"),
+    "child": u("\uf1ae"),
     "circle": u("\uf111"),
     "circle-o": u("\uf10c"),
+    "circle-o-notch": u("\uf1ce"),
+    "circle-thin": u("\uf1db"),
+    "clipboard": u("\uf0ea"),
     "clock-o": u("\uf017"),
     "cloud": u("\uf0c2"),
     "cloud-download": u("\uf0ed"),
     "cloud-upload": u("\uf0ee"),
+    "cny": u("\uf157"),
     "code": u("\uf121"),
     "code-fork": u("\uf126"),
+    "codepen": u("\uf1cb"),
     "coffee": u("\uf0f4"),
+    "cog": u("\uf013"),
+    "cogs": u("\uf085"),
     "columns": u("\uf0db"),
     "comment": u("\uf075"),
     "comment-o": u("\uf0e5"),
@@ -118,26 +149,43 @@ icons = {
     "comments-o": u("\uf0e6"),
     "compass": u("\uf14e"),
     "compress": u("\uf066"),
-    "copy": u("\uF0c5"),
+    "copy": u("\uf0c5"),
     "credit-card": u("\uf09d"),
     "crop": u("\uf125"),
     "crosshairs": u("\uf05b"),
     "css3": u("\uf13c"),
+    "cube": u("\uf1b2"),
+    "cubes": u("\uf1b3"),
+    "cut": u("\uf0c4"),
     "cutlery": u("\uf0f5"),
+    "dashboard": u("\uf0e4"),
+    "database": u("\uf1c0"),
+    "dedent": u("\uf03b"),
+    "delicious": u("\uf1a5"),
     "desktop": u("\uf108"),
+    "deviantart": u("\uf1bd"),
+    "digg": u("\uf1a6"),
+    "dollar": u("\uf155"),
     "dot-circle-o": u("\uf192"),
     "download": u("\uf019"),
     "dribbble": u("\uf17d"),
     "dropbox": u("\uf16b"),
+    "drupal": u("\uf1a9"),
+    "edit": u("\uf044"),
     "eject": u("\uf052"),
     "ellipsis-h": u("\uf141"),
     "ellipsis-v": u("\uf142"),
+    "empire": u("\uf1d1"),
     "envelope": u("\uf0e0"),
     "envelope-o": u("\uf003"),
+    "envelope-square": u("\uf199"),
     "eraser": u("\uf12d"),
+    "eur": u("\uf153"),
+    "euro": u("\uf153"),
     "exchange": u("\uf0ec"),
     "exclamation": u("\uf12a"),
     "exclamation-circle": u("\uf06a"),
+    "exclamation-triangle": u("\uf071"),
     "expand": u("\uf065"),
     "external-link": u("\uf08e"),
     "external-link-square": u("\uf14c"),
@@ -147,12 +195,28 @@ icons = {
     "facebook-square": u("\uf082"),
     "fast-backward": u("\uf049"),
     "fast-forward": u("\uf050"),
+    "fax": u("\uf1ac"),
     "female": u("\uf182"),
     "fighter-jet": u("\uf0fb"),
     "file": u("\uf15b"),
+    "file-archive-o": u("\uf1c6"),
+    "file-audio-o": u("\uf1c7"),
+    "file-code-o": u("\uf1c9"),
+    "file-excel-o": u("\uf1c3"),
+    "file-image-o": u("\uf1c5"),
+    "file-movie-o": u("\uf1c8"),
     "file-o": u("\uf016"),
+    "file-pdf-o": u("\uf1c1"),
+    "file-photo-o": u("\uf1c5"),
+    "file-picture-o": u("\uf1c5"),
+    "file-powerpoint-o": u("\uf1c4"),
+    "file-sound-o": u("\uf1c7"),
     "file-text": u("\uf15c"),
     "file-text-o": u("\uf0f6"),
+    "file-video-o": u("\uf1c8"),
+    "file-word-o": u("\uf1c2"),
+    "file-zip-o": u("\uf1c6"),
+    "files-o": u("\uf0c5"),
     "film": u("\uf008"),
     "filter": u("\uf0b0"),
     "fire": u("\uf06d"),
@@ -160,9 +224,10 @@ icons = {
     "flag": u("\uf024"),
     "flag-checkered": u("\uf11e"),
     "flag-o": u("\uf11d"),
-    "floppy": u("\uf0c7"),
+    "flash": u("\uf0e7"),
     "flask": u("\uf0c3"),
     "flickr": u("\uf16e"),
+    "floppy-o": u("\uf0c7"),
     "folder": u("\uf07b"),
     "folder-o": u("\uf114"),
     "folder-open": u("\uf07c"),
@@ -172,42 +237,65 @@ icons = {
     "foursquare": u("\uf180"),
     "frown-o": u("\uf119"),
     "gamepad": u("\uf11b"),
+    "gavel": u("\uf0e3"),
     "gbp": u("\uf154"),
+    "ge": u("\uf1d1"),
+    "gear": u("\uf013"),
+    "gears": u("\uf085"),
     "gift": u("\uf06b"),
+    "git": u("\uf1d3"),
+    "git-square": u("\uf1d2"),
     "github": u("\uf09b"),
     "github-alt": u("\uf113"),
     "github-square": u("\uf092"),
     "gittip": u("\uf184"),
     "glass": u("\uf000"),
     "globe": u("\uf0ac"),
+    "google": u("\uf1a0"),
     "google-plus": u("\uf0d5"),
     "google-plus-square": u("\uf0d4"),
+    "graduation-cap": u("\uf19d"),
     "group": u("\uf0c0"),
     "h-square": u("\uf0fd"),
+    "hacker-news": u("\uf1d4"),
     "hand-o-down": u("\uf0a7"),
     "hand-o-left": u("\uf0a5"),
     "hand-o-right": u("\uf0a4"),
     "hand-o-up": u("\uf0a6"),
     "hdd-o": u("\uf0a0"),
+    "header": u("\uf1dc"),
     "headphones": u("\uf025"),
     "heart": u("\uf004"),
     "heart-o": u("\uf08a"),
+    "history": u("\uf1da"),
     "home": u("\uf015"),
     "hospital-o": u("\uf0f8"),
     "html5": u("\uf13b"),
+    "image": u("\uf03e"),
     "inbox": u("\uf01c"),
     "indent": u("\uf03c"),
     "info": u("\uf129"),
     "info-circle": u("\uf05a"),
+    "inr": u("\uf156"),
     "instagram": u("\uf16d"),
+    "institution": u("\uf19c"),
     "italic": u("\uf033"),
+    "joomla": u("\uf1aa"),
+    "jpy": u("\uf157"),
+    "jsfiddle": u("\uf1cc"),
     "key": u("\uf084"),
     "keyboard-o": u("\uf11c"),
+    "krw": u("\uf159"),
+    "language": u("\uf1ab"),
     "laptop": u("\uf109"),
     "leaf": u("\uf06c"),
+    "legal": u("\uf0e3"),
     "lemon-o": u("\uf094"),
     "level-down": u("\uf149"),
     "level-up": u("\uf148"),
+    "life-bouy": u("\uf1cd"),
+    "life-ring": u("\uf1cd"),
+    "life-saver": u("\uf1cd"),
     "lightbulb-o": u("\uf0eb"),
     "link": u("\uf0c1"),
     "linkedin": u("\uf0e1"),
@@ -225,6 +313,8 @@ icons = {
     "long-arrow-up": u("\uf176"),
     "magic": u("\uf0d0"),
     "magnet": u("\uf076"),
+    "mail-forward": u("\uf064"),
+    "mail-reply": u("\uf112"),
     "mail-reply-all": u("\uf122"),
     "male": u("\uf183"),
     "map-marker": u("\uf041"),
@@ -237,17 +327,33 @@ icons = {
     "minus-circle": u("\uf056"),
     "minus-square": u("\uf146"),
     "minus-square-o": u("\uf147"),
+    "mobile": u("\uf10b"),
+    "mobile-phone": u("\uf10b"),
     "money": u("\uf0d6"),
     "moon-o": u("\uf186"),
+    "mortar-board": u("\uf19d"),
     "music": u("\uf001"),
+    "navicon": u("\uf0c9"),
+    "openid": u("\uf19b"),
+    "outdent": u("\uf03b"),
     "pagelines": u("\uf18c"),
+    "paper-plane": u("\uf1d8"),
+    "paper-plane-o": u("\uf1d9"),
     "paperclip": u("\uf0c6"),
+    "paragraph": u("\uf1dd"),
+    "paste": u("\uf0ea"),
     "pause": u("\uf04c"),
+    "paw": u("\uf1b0"),
     "pencil": u("\uf040"),
     "pencil-square": u("\uf14b"),
+    "pencil-square-o": u("\uf044"),
     "phone": u("\uf095"),
     "phone-square": u("\uf098"),
+    "photo": u("\uf03e"),
     "picture-o": u("\uf03e"),
+    "pied-piper": u("\uf1a7"),
+    "pied-piper-alt": u("\uf1a8"),
+    "pied-piper-square": u("\uf1a7"),
     "pinterest": u("\uf0d2"),
     "pinterest-square": u("\uf0d3"),
     "plane": u("\uf072"),
@@ -261,24 +367,47 @@ icons = {
     "power-off": u("\uf011"),
     "print": u("\uf02f"),
     "puzzle-piece": u("\uf12e"),
+    "qq": u("\uf1d6"),
     "qrcode": u("\uf029"),
     "question": u("\uf128"),
     "question-circle": u("\uf059"),
     "quote-left": u("\uf10d"),
     "quote-right": u("\uf10e"),
+    "ra": u("\uf1d0"),
     "random": u("\uf074"),
+    "rebel": u("\uf1d0"),
+    "recycle": u("\uf1b8"),
+    "reddit": u("\uf1a1"),
+    "reddit-square": u("\uf1a2"),
     "refresh": u("\uf021"),
     "remove": u("\uf00d"),
     "renren": u("\uf18b"),
+    "reorder": u("\uf0c9"),
+    "repeat": u("\uf01e"),
+    "reply": u("\uf112"),
     "reply-all": u("\uf122"),
     "retweet": u("\uf079"),
+    "rmb": u("\uf157"),
     "road": u("\uf018"),
     "rocket": u("\uf135"),
+    "rotate-left": u("\uf0e2"),
+    "rotate-right": u("\uf01e"),
+    "rouble": u("\uf158"),
     "rss": u("\uf09e"),
     "rss-square": u("\uf143"),
+    "rub": u("\uf158"),
+    "ruble": u("\uf158"),
+    "rupee": u("\uf156"),
+    "save": u("\uf0c7"),
+    "scissors": u("\uf0c4"),
     "search": u("\uf002"),
     "search-minus": u("\uf010"),
     "search-plus": u("\uf00e"),
+    "send": u("\uf1d8"),
+    "send-o": u("\uf1d9"),
+    "share": u("\uf064"),
+    "share-alt": u("\uf1e0"),
+    "share-alt-square": u("\uf1e1"),
     "share-square": u("\uf14d"),
     "share-square-o": u("\uf045"),
     "shield": u("\uf132"),
@@ -288,35 +417,57 @@ icons = {
     "signal": u("\uf012"),
     "sitemap": u("\uf0e8"),
     "skype": u("\uf17e"),
+    "slack": u("\uf198"),
+    "sliders": u("\uf1de"),
     "smile-o": u("\uf118"),
+    "sort": u("\uf0dc"),
     "sort-alpha-asc": u("\uf15d"),
     "sort-alpha-desc": u("\uf15e"),
     "sort-amount-asc": u("\uf160"),
     "sort-amount-desc": u("\uf161"),
+    "sort-asc": u("\uf0de"),
+    "sort-desc": u("\uf0dd"),
+    "sort-down": u("\uf0dd"),
     "sort-numeric-asc": u("\uf162"),
     "sort-numeric-desc": u("\uf163"),
+    "sort-up": u("\uf0de"),
+    "soundcloud": u("\uf1be"),
+    "space-shuttle": u("\uf197"),
     "spinner": u("\uf110"),
+    "spoon": u("\uf1b1"),
+    "spotify": u("\uf1bc"),
     "square": u("\uf0c8"),
     "square-o": u("\uf096"),
     "stack-exchange": u("\uf18d"),
     "stack-overflow": u("\uf16c"),
     "star": u("\uf005"),
     "star-half": u("\uf089"),
+    "star-half-empty": u("\uf123"),
+    "star-half-full": u("\uf123"),
+    "star-half-o": u("\uf123"),
     "star-o": u("\uf006"),
+    "steam": u("\uf1b6"),
+    "steam-square": u("\uf1b7"),
     "step-backward": u("\uf048"),
     "step-forward": u("\uf051"),
     "stethoscope": u("\uf0f1"),
     "stop": u("\uf04d"),
     "strikethrough": u("\uf0cc"),
+    "stumbleupon": u("\uf1a4"),
+    "stumbleupon-circle": u("\uf1a3"),
     "subscript": u("\uf12c"),
     "suitcase": u("\uf0f2"),
     "sun-o": u("\uf185"),
     "superscript": u("\uf12b"),
+    "support": u("\uf1cd"),
     "table": u("\uf0ce"),
     "tablet": u("\uf10a"),
+    "tachometer": u("\uf0e4"),
     "tag": u("\uf02b"),
     "tags": u("\uf02c"),
     "tasks": u("\uf0ae"),
+    "taxi": u("\uf1ba"),
+    "tencent-weibo": u("\uf1d5"),
     "terminal": u("\uf120"),
     "text-height": u("\uf034"),
     "text-width": u("\uf035"),
@@ -333,33 +484,54 @@ icons = {
     "times-circle": u("\uf057"),
     "times-circle-o": u("\uf05c"),
     "tint": u("\uf043"),
+    "toggle-down": u("\uf150"),
+    "toggle-left": u("\uf191"),
+    "toggle-right": u("\uf152"),
+    "toggle-up": u("\uf151"),
     "trash-o": u("\uf014"),
+    "tree": u("\uf1bb"),
     "trello": u("\uf181"),
     "trophy": u("\uf091"),
     "truck": u("\uf0d1"),
+    "try": u("\uf195"),
     "tumblr": u("\uf173"),
     "tumblr-square": u("\uf174"),
+    "turkish-lira": u("\uf195"),
     "twitter": u("\uf099"),
     "twitter-square": u("\uf081"),
     "umbrella": u("\uf0e9"),
     "underline": u("\uf0cd"),
+    "undo": u("\uf0e2"),
+    "university": u("\uf19c"),
+    "unlink": u("\uf127"),
     "unlock": u("\uf09c"),
     "unlock-alt": u("\uf13e"),
+    "unsorted": u("\uf0dc"),
     "upload": u("\uf093"),
+    "usd": u("\uf155"),
     "user": u("\uf007"),
     "user-md": u("\uf0f0"),
+    "users": u("\uf0c0"),
     "video-camera": u("\uf03d"),
     "vimeo-square": u("\uf194"),
+    "vine": u("\uf1ca"),
     "vk": u("\uf189"),
     "volume-down": u("\uf027"),
     "volume-off": u("\uf026"),
     "volume-up": u("\uf028"),
+    "warning": u("\uf071"),
+    "wechat": u("\uf1d7"),
     "weibo": u("\uf18a"),
+    "weixin": u("\uf1d7"),
     "wheelchair": u("\uf193"),
     "windows": u("\uf17a"),
+    "won": u("\uf159"),
+    "wordpress": u("\uf19a"),
     "wrench": u("\uf0ad"),
     "xing": u("\uf168"),
     "xing-square": u("\uf169"),
+    "yahoo": u("\uf19e"),
+    "yen": u("\uf157"),
     "youtube": u("\uf167"),
     "youtube-play": u("\uf16a"),
     "youtube-square": u("\uf166"),
@@ -377,7 +549,7 @@ class ListUpdateAction(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         print("icons = {")
         for icon in sorted(icons.keys()):
-            print('    "%s": u("\\u%x"),' % (icon, ord(icons[icon][0])))
+            print(u'    "%s": u("\\u%x"),' % (icon, ord(icons[icon])))
         print("}")
         exit(0)
 
@@ -399,19 +571,30 @@ def export_icon(icon, size, size_adjust, filename, font, color):
     # Get bounding box
     bbox = image.getbbox()
 
+    # Create an alpha mask
+    imagemask = Image.new("L", (size, size), 0)
+    drawmask = ImageDraw.Draw(imagemask)
+
+    # Draw the icon on the mask
+    drawmask.text(((size - width) / 2, (size - height) / 2), icons[icon],
+        font=font, fill=255)
+
+    # Create a solid color image and apply the mask
+    iconimage = Image.new("RGBA", (size,size), color)
+    iconimage.putalpha(imagemask)
+
     if bbox:
-        image = image.crop(bbox)
+        iconimage = iconimage.crop(bbox)
 
     borderw = int((size - (bbox[2] - bbox[0])) / 2)
     borderh = int((size - (bbox[3] - bbox[1])) / 2)
 
-    # Create background image
-    bg = Image.new("RGBA", (size, size), (0,0,0,0))
-
-    bg.paste(image, (borderw,borderh))
+    # Create output image
+    outimage = Image.new("RGBA", (size, size), (0,0,0,0))
+    outimage.paste(iconimage, (borderw,borderh))
 
     # Save file
-    bg.save(filename)
+    outimage.save(filename)
 
 
 class LoadCSSAction(argparse.Action):
@@ -424,16 +607,25 @@ class LoadCSSAction(argparse.Action):
         import tinycss
         new_icons = {}
         parser = tinycss.make_parser("page3")
-        stylesheet = parser.parse_stylesheet_file(filename)
-        is_icon = re.compile(u("^\.fa-(.*):before$"))
+
+        try:
+            stylesheet = parser.parse_stylesheet_file(filename)
+        except IOError:
+            print >> sys.stderr, ("Error: CSS file (%s) can't be opened"
+                % (filename))
+            exit(1)
+
+        is_icon = re.compile(u("\.fa-(.*):before,?"))
         for rule in stylesheet.rules:
             selector = rule.selector.as_css()
-            match = is_icon.match(selector)
-            if match:
+            for match in is_icon.finditer(selector):
                 name = match.groups()[0]
                 for declaration in rule.declarations:
-                    if declaration.name == u("content"):
-                        new_icons[name] = declaration.value.as_css()
+                    if declaration.name == u"content":
+                        val = declaration.value.as_css()
+                        if val.startswith('"') and val.endswith('"'):
+                            val = val[1:-1]
+                        new_icons[name] = uchr(int(val[1:], 16))
         return new_icons
 
 
